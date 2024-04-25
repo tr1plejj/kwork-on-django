@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>Ваши текущие взятые заказы:</h1>
+{% for offer in offers %}
+    <div class="seller">
+        <h2><a href="{% url 'order_detail' pk=offer.pk %}">Название: {{ offer.title }}</a></h2>
+        <h3>Оплата: {{ offer.price }}</h3>
+        <h4>Автор: <a href="{% url 'profile' username=offer.author %}">{{ offer.author }}</a></h4>
+    </div>
+{% endfor %}
+{% endblock %}

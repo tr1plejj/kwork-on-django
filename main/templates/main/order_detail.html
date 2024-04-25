@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="detail">
+    <h1>Заказ: {{ order.title}}</h1>
+    <p>Описание к заказу: {{ order.description }}</p>
+    <p>Оплата за выполненный заказ: {{ order.price }}</p>
+    <p>Автор: <a href="{% url 'profile' username=order.author %}">{{ order.author }}</a></p>
+    <form method="post" action="{% url 'order_action' pk=order.pk %}"> {% csrf_token %}
+        {% if order.author == request.user %}
+            <button type="button"><a href="{% url 'order_edit' pk=order.pk %}">Редактировать</a></button>
+            <button type="submit" name="order" value="delete">Удалить</button>
+        {% elif order in user_offers %}
+            <button type="submit" name="order" value="cancel">Отказаться</button>
+            <button type="submit" name="order" value="delete">Выполнено</button>
+        {% else %}
+            <button type="submit" name="order" value="add">Взять заказ</button>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Kwork</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'buyer' %}">Кабинет покупателя</a></li>
+            <li><a href="{% url 'seller' %}">Кабинет продавца</a></li>
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile' username=request.user %}">Профиль {{ request.user }}</a></li>
+            {% else %}
+                <li><a href="{% url 'profile' username=request.user %}">Вы не авторизованы, нажмите, чтобы войти</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+{% block content %}
+{% endblock %}
+</body>
+</html>
