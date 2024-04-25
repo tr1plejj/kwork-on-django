@@ -1,12 +1,12 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<h1>Все заказы</h1>
+<h1>Все заказы:</h1>
 {% for order in orders %}
-<div>
-    <h2><a href="{% url 'order_detail' pk=order.pk %}">Заказ: {{ order.title }}</a></h2>
-    <h3>Оплата: {{ order.price }}</h3>
-    <h4>Автор: <a href="{% url 'profile' username=order.author %}">{{ order.author }}</a></h4>
-</div>
+    <div class="buyer">
+        <h2><a href="{% url 'order_detail' pk=order.pk %}">Заказ: {{ order.title }}</a></h2>
+        <h3>Оплата: {{ order.price }}</h3>
+        <h4>Автор: <a href="{% url 'profile' username=order.author %}">{{ order.author }}</a></h4>
+    </div>
 {% endfor %}
 {% endblock %}

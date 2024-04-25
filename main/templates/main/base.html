@@ -12,8 +12,8 @@
     <nav>
         <ul>
             <li><a href="{% url 'index' %}">Главная</a></li>
-            <li><a href="{% url 'buyer' %}">Кабинет покупателя</a></li>
-            <li><a href="{% url 'seller' %}">Кабинет продавца</a></li>
+            <li><a href="{% url 'buyer' %}">Кабинет заказчика</a></li>
+            <li><a href="{% url 'seller' %}">Кабинет исполнителя</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'profile' username=request.user %}">Профиль {{ request.user }}</a></li>
             {% else %}
