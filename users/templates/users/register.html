@@ -6,8 +6,16 @@
 </head>
 <body>
 <form method="POST">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Зарегистрироваться</button>
+    <p>Имя пользователя: {{ form.username }}</p>
+    <p>Почта: {{ form.email }}</p>
+    <p>Пол: {{ form.gender }}</p>
+    <p>Имя: {{ form.first_name }}</p>
+    <p>Фамилия: {{ form.last_name }}</p>
+    <p>Ваша профессия: {{ form.profession }}</p>
+    <p>Пароль: {{ form.password1}}</p>
+    <p>Пароль еще раз: {{ form.password2 }}</p>
+    <button type="submit" class="save btn btn-default">Зарегистрироваться</button>
+    <p>{{ form.errors }}</p>
 </form>
 <a href="{% url 'login' %}">Есть профиль? Войдите</a>
 </body>

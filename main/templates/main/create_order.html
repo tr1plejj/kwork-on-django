@@ -2,7 +2,10 @@
 
 {% block content %}
 <form method="POST">{% csrf_token %}
-        {{ form.as_p }}
+        <p>Название заказа: {{ form.title }}</p>
+        <p>Описание заказа: {{ form.description }}</p>
+        <p>Оплата: {{ form.price }}</p>
         <button type="submit">Создать заказ</button>
 </form>
+{{ form.errors }}
 {% endblock %}

@@ -1,8 +1,10 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<form method="POST">{% csrf_token %}
+<form enctype="multipart/form-data" method="POST">{% csrf_token %}
+        <p>Выбрать аватарку: {{ form.avatar }}</p>
         <p>Почта: {{ form.email }}</p>
+        <p>Опыт работы: {{ form.exp }}</p>
         <p>Телеграм: {{ form.telegram }}</p>
         <p>Вконтакте: {{ form.vk }}</p>
         <p>Про себя: {{ form.about }}</p>

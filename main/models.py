@@ -26,9 +26,5 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user=instance)
 
-    # @receiver(post_save, sender=AUTH_USER_MODEL)
-    # def save_user_profile(sender, instance, **kwargs):
-    #     instance.profile.save()
-
     def __str__(self):
-        return str(self.user)
+        return self.user.__str__()

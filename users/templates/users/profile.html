@@ -1,17 +1,22 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-<div class="profile">
-    <h1>Профиль {{ user_info.username }}</h1>
-    <p>Имя: {{ user_info.first_name }}</p>
-    <p>Фамилия: {{ user_info.last_name }}</p>
-    <p>Пол: {{ user_info.get_gender_display }}</p>
-    <p>Дата регистрации: {{ user_info.date_joined }}</p>
-    <p>Почта: {{ user_info.email }}</p>
-    <p>Телеграм: {{ user_info.telegram }}</p>
-    <p>Вконтакте: {{ user_info.vk }}</p>
-    <p class=".p">Про себя: {{ user_info.about }}</p>
-    <button type="button"><a href="{% url 'edit_profile' %}">Редактировать профиль</a></button>
-    <button type="button"><a href="{% url 'logout' %}">Выйти</a></button>
-</div>
+    <div class="ava">
+        <img src="{{ user_info.avatar.url }}" width="340" height="280" alt="ava">
+    </div>
+    <div class="profile">
+        <h1>Профиль {{ user_info.username }}</h1>
+        <p>Имя: {{ user_info.first_name }}</p>
+        <p>Фамилия: {{ user_info.last_name }}</p>
+        <p>Пол: {{ user_info.get_gender_display }}</p>
+        <p>Дата регистрации: {{ user_info.date_joined }}</p>
+        <p>Почта: {{ user_info.email }}</p>
+        <p>Профессия: {{ user.get_profession_display }}</p>
+        <p>Опыт работы (в годах): {{ user.exp }}</p>
+        <p>Телеграм: {{ user_info.telegram }}</p>
+        <p>Вконтакте: <a href="{{ user_info.vk }}">{{ user_info.vk }}</a></p>
+        <p>Про себя: {{ user_info.about }}</p>
+        <button type="button"><a href="{% url 'edit_profile' %}">Редактировать профиль</a></button>
+        <button type="button"><a href="{% url 'logout' %}">Выйти</a></button>
+    </div>
 {% endblock %}

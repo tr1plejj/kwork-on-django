@@ -61,8 +61,8 @@ class ProfileEdit(LoginRequiredMixin, View):
 
     def post(self, request):
         profile = get_object_or_404(CustomUser, id=request.user.id)
-        form = ChangeProfileForm(request.POST, instance=profile)
+        form = ChangeProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect('profile', username=request.user.username)
         return render(request, self.template_name, {'form': form})

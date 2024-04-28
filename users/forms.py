@@ -7,14 +7,14 @@ class RegisterForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email', 'gender', 'first_name', 'last_name',)
+        fields = ('username', 'email', 'profession', 'gender', 'first_name', 'last_name')
 
 
 class ChangeProfileForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'telegram', 'vk', 'about',)
+        fields = ('avatar', 'email', 'exp', 'telegram', 'vk', 'about',)
 
 
 class LoginForm(forms.Form):

@@ -16,6 +16,9 @@
             <li><a href="{% url 'seller' %}">Кабинет исполнителя</a></li>
             {% if request.user.is_authenticated %}
                 <li><a href="{% url 'profile' username=request.user %}">Профиль {{ request.user }}</a></li>
+                {% if request.user.is_staff %}
+                    <li><a href="/admin/">Админ панель</a></li>
+                {% endif %}
             {% else %}
                 <li><a href="{% url 'profile' username=request.user %}">Вы не авторизованы, нажмите, чтобы войти</a></li>
             {% endif %}
