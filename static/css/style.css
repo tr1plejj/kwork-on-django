@@ -1,3 +1,11 @@
+.profile {
+    margin-left: 640px;
+    margin-right: 540px;
+    padding: 40px;
+    color: brown;
+    background-color: antiquewhite;
+}
+
 body {
     background-color: azure;
 }
@@ -30,13 +38,7 @@ a:hover {
     color: chocolate;
 }
 
-.profile {
-    margin-left: 100px;
-    margin-top: 100px;
-    color: brown;
-}
-
-.buyer {
+.blocks {
     background-color: floralwhite;
     margin-left: 50px;
     margin-top: 25px;
@@ -47,4 +49,11 @@ a:hover {
 .detail {
     margin-top: 24px;
     margin-left: 24px;
+}
+
+.avatar {
+    width: 50px;
+    height: 20px;
+    margin-top: 150px;
+    margin-left: 200px;
 }

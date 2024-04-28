@@ -131,7 +131,6 @@ MEDIA_URL = 'media/'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 

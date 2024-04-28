@@ -4,7 +4,7 @@
 <h1>Ваши проекты:</h1>
 <button type="submit"><a href="{% url 'create_order' %}">Создать новый проект</a></button>
 {% for order in orders %}
-    <div class="buyer">
+    <div class="blocks">
         <h2><a href="{% url 'order_detail' pk=order.pk %}">Название: {{ order.title }}</a></h2>
         <h3>Оплата: {{ order.price }}</h3>
     </div>
