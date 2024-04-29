@@ -1,6 +1,9 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+<form action="{% url 'search_results' %}" method="get">
+    <input type="text" name="orders" placeholder="Поиск по названию заказа">
+</form>
 <h1>Все заказы:</h1>
 {% for order in orders %}
     <div class="blocks">

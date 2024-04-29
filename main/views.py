@@ -21,6 +21,12 @@ def order_detail(request, pk):
         return render(request, 'main/order_detail.html', {'order': order, 'user_offers': user_offers})
 
 
+def search_results(request):
+    query = request.GET.get('orders')
+    orders = Order.objects.filter(title__contains=query)
+    return render(request, 'main/index.html', {'orders': orders})
+
+
 @login_required
 def buyer_page(request):
     user_orders = Profile.objects.get(user=request.user).orders.all()
