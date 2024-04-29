@@ -7,7 +7,15 @@ from frlnc.settings import AUTH_USER_MODEL
 
 
 class Order(models.Model):
+    class ProfessionChoices(models.TextChoices):
+        pd = ('python', 'Python-разработчик')
+        jd = ('java', 'Java-разработчик')
+        sql = ('sql', 'Архитектор баз данных')
+        analytic = ('analytic', 'Аналитик')
+        phpd = ('php', 'PHP-разработчик')
+        cd = ('c', 'C-разработчик')
     author = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    who_needs = models.CharField(choices=ProfessionChoices.choices)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=512)
     price = models.IntegerField()

@@ -3,6 +3,7 @@
 {% block content %}
 <div class="detail">
     <h1>Заказ: {{ order.title}}</h1>
+    <p>Кто требуется: {{ order.get_who_needs_display }}</p>
     <p>Описание к заказу: {{ order.description }}</p>
     <p>Оплата за выполненный заказ: {{ order.price }}</p>
     <p>Автор: <a href="{% url 'profile' username=order.author %}">{{ order.author }}</a></p>

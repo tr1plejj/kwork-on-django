@@ -8,7 +8,8 @@ from .models import Order, Profile
 
 def index(request):
     orders = Order.objects.all()
-    return render(request, 'main/index.html', {'orders': orders})
+    form = OrderForm()
+    return render(request, 'main/index.html', {'orders': orders, 'form': form})
 
 
 def order_detail(request, pk):
@@ -23,8 +24,10 @@ def order_detail(request, pk):
 
 def search_results(request):
     query = request.GET.get('orders')
-    orders = Order.objects.filter(title__contains=query)
-    return render(request, 'main/index.html', {'orders': orders})
+    prof = request.GET.get('who_needs')
+    form = OrderForm()
+    orders = Order.objects.filter(title__contains=query, who_needs=prof)
+    return render(request, 'main/index.html', {'orders': orders, 'form': form})
 
 
 @login_required

@@ -51,6 +51,16 @@ def profile(request, username):
         return redirect('login')
 
 
+def find_workers(request):
+    form = RegisterForm()
+    profession = request.GET.get('profession')
+    if profession is None or profession == '':
+        workers = CustomUser.objects.all()
+        return render(request, 'users/find_workers.html', {'workers': workers, 'form': form})
+    workers = CustomUser.objects.filter(profession=profession)
+    return render(request, 'users/find_workers.html', {'workers': workers, 'form': form})
+
+
 class ProfileEdit(LoginRequiredMixin, View):
     template_name = 'users/edit_profile.html'
 

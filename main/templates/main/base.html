@@ -5,13 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Django Kwork</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 <header>
     <nav>
         <ul>
             <li><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'find_workers' %}">Найти исполнителей</a></li>
             <li><a href="{% url 'buyer' %}">Кабинет заказчика</a></li>
             <li><a href="{% url 'seller' %}">Кабинет исполнителя</a></li>
             {% if request.user.is_authenticated %}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<form action="{% url 'find_workers' %}" method="get">
+    <p>Выберите профессию: {{ form.profession }}</p>
+    <input type="submit" value="Искать"/>
+</form>
+    {% for worker in workers %}
+        <div class="blocks">
+            <h2><a href="{% url 'profile' username=worker.username %}">Исполнитель: {{ worker.username }}</a></h2>
+            <h3>Профессия: {{ worker.get_profession_display }}</h3>
+        </div>
+    {% endfor %}
+{% endblock %}
